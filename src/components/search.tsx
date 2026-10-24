@@ -1,7 +1,11 @@
-export const Search = () => {
+interface SearchProps {
+  onChange: (value: string) => void;
+}
+
+export const Search = ({ onChange }: SearchProps) => {
   return (
     <div className="w-full max-w-md">
-      <div className="flex items-center gap-4 rounded-md bg-white px-6 py-4 shadow-md transition-shadow focus-within:ring-2 focus-within:ring-gray-300">
+      <div className="flex items-center gap-4 rounded-md bg-white px-6 py-4 shadow-md transition-shadow focus-within:ring-2 focus-within:ring-gray-300 dark:bg-[hsl(209,23%,22%)]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -20,8 +24,9 @@ export const Search = () => {
 
         <input
           type="text"
+          onChange={(e) => onChange(e.target.value)}
           placeholder="Search for a country..."
-          className="w-full bg-transparent text-sm text-gray-800 outline-none placeholder:text-gray-400"
+          className="w-full bg-transparent text-sm text-gray-800  dark:text-[hsl(0,100%,100%)] outline-none placeholder:text-gray-400"
           aria-label="Search for a country"
         />
       </div>
